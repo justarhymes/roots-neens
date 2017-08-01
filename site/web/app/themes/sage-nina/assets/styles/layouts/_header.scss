@@ -1,0 +1,104 @@
+.page-header {
+  padding: 0;
+  h1 {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+  }
+}
+
+.home-link {
+  display: block;
+  float: right;
+  font-size: 14px;
+  line-height: 24px;
+  @include media-breakpoint-down(sm) {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.mobile-header {
+  display: none;
+  @include media-breakpoint-down(sm) {
+    display: block;
+    @include make-col($main-sm-columns);
+  }
+
+  .page-links {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    a {
+      display: block;
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-lightest;
+      transition: ease 500ms all;
+
+      &:hover {
+        color: darken($color-lightest, 10%);
+      }
+    }
+  }
+
+  .info {
+    background: $brand-primary;
+    color: $color-lightest;
+    padding: 10px 15px;
+
+    h1 {
+      font-size: 18px;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    h6 {
+      font-size: 12px;
+    }
+  }
+
+  .widget {
+    padding: 0 15px;
+    h3 {
+      display: none;
+    }
+    ul {
+      margin: 5px 0 0;
+      padding: 0;
+      list-style: none;
+      overflow: hidden;
+
+      li {
+        float: left;
+        margin: 0 6px 0 0;
+        &:last-child {
+          margin: 0;
+        }
+        a {
+          display: inline-block;
+          font-size: 12px;
+          line-height: 30px;
+          padding: 0 8px;
+          background: $brand-primary;
+          color: $color-lightest;
+          border-radius: 4px;
+          transition: ease 500ms all;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $color-lightest;
+            background: darken($brand-primary, 10%);
+          }
+        }
+      }
+    }
+  }
+}

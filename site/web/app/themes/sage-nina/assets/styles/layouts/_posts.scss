@@ -1,0 +1,87 @@
+.home, .category, .tag {
+  .post {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: $color-lightest;
+    .entry {
+      position: relative;
+      header {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        padding: 15px;
+        transition: ease 500ms all;
+
+        a {
+          display: block;
+          height: 100%;
+          width: 100%;
+          color: $color-lightest;
+          text-decoration: none;
+        }
+
+        h2 {
+          font-size: 18px;
+          line-height: 24px;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          text-align: center;
+          transform: translate3d(0, -50%, 0);
+        }
+        .entry-meta {
+          position: absolute;
+          bottom: 30px;
+          left: 0;
+          width: 100%;
+          text-align: center;
+        }
+      }
+      &:hover {
+        img {
+          opacity: 0.25;
+        }
+        header {
+          opacity: 1;
+        }
+      }
+
+      .entry-image {
+        background: darken($brand-primary, 20%);
+        img {
+          width: 100%;
+          transition: ease 500ms all;
+        }
+      }
+    }
+  }
+}
+
+.single-post {
+  .post {
+    padding-top: 30px;
+    header {
+      overflow: hidden;
+      .entry-title {
+        float: left;
+        width: calc(100% - 150px);
+        font-size: 24px;
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+    }
+
+    .entry-meta {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .entry-tags {
+      margin-top: 15px 0 30px;
+    }
+  }
+}

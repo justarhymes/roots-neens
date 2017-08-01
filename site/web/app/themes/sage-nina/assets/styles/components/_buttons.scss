@@ -1,0 +1,46 @@
+.btn {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 40px;
+  color: $color-lightest;
+  background: $brand-primary;
+  border-radius: 4px;
+  padding: 0 20px;
+  transition: ease 500ms all;
+
+  .fa {
+    margin-right: 15px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-lightest;
+    background: darken($brand-primary, 10%);
+  }
+}
+
+.btn.tag {
+  background: none;
+  color: $brand-primary;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  margin-right: 5px;
+  &:after {
+    content: ', ';
+  }
+  .fa {
+    margin-right: 2px;
+  }
+  &:hover, &:focus, &:active {
+    color: darken($brand-primary, 10%);
+  }
+  &:last-child {
+    margin-right: 0;
+    &:after {
+      content: '';
+    }
+  }
+}

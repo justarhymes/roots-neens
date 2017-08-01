@@ -1,0 +1,55 @@
+body {
+  color: $color-darkest;
+  font-family: "univia-pro",sans-serif;
+  font-weight: 400;
+}
+
+.loading {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color-lightest;
+
+  .load-content {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+
+    p {
+      margin: 5px 0 0;
+      text-align: center;
+      color: $brand-primary;
+    }
+    img {
+      display: block;
+      width: 400px;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.main > .inner-content {
+  padding: 15px 15px 0;
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
+}
+
+.entry-image {
+  .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}

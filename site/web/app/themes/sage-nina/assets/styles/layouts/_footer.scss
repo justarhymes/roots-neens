@@ -1,0 +1,30 @@
+footer.content-info {
+  overflow: hidden;
+  padding: 0 15px 30px;
+  .widget ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+
+    li {
+      float: left;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .widget.simple-social-icons {
+    float: left;
+  }
+  .widget.widget_text {
+    float: right;
+  }
+  @include media-breakpoint-down(sm) {
+    .widget.simple-social-icons,
+    .widget.widget_text {
+      float: none;
+    }
+  }
+}
