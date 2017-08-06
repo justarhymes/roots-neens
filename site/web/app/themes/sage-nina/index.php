@@ -18,5 +18,3 @@
     echo '<button type="button" class="loadmore">More posts</button>';
   }
 ?>
-
-<?php the_posts_navigation(); ?>

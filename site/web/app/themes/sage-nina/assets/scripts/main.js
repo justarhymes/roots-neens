@@ -22,49 +22,108 @@
         function launchEvents() {
           // JavaScript to be fired on all pages
           var pageNum = 1;
+          var nextNum;
           var categories = [];
+          var tags = [];
+          var ajaxLink;
+          var fullLink;
+          var pathname = window.location.pathname.split('/');
+          var first_path = pathname[1];
+          var second_path = pathname[2];
+          var currentCatNum;
+          var currentTagNum;
 
           $.ajax({
             url: '/wp-json/wp/v2/categories',
             type: 'GET',
             success: function(data) {
-              categories = data;
+              if (data) {
+                categories = data;
+                if (first_path === 'art') {
+                  for (var i; i > data.length; i++) {
+                    if (second_path === data[i].slug) {
+                      currentCatNum = data[i].id;
+                    }
+                  }
+                }
+              }
+            }
+          });
+
+          $.ajax({
+            url: '/wp-json/wp/v2/tags',
+            type: 'GET',
+            success: function(data) {
+              if (data) {
+                tags = data;
+                if (first_path === 'tag') {
+                  for (var i; i > data.length; i++) {
+                    if (second_path === data[i].slug) {
+                      currentTagNum = data[i].id;
+                    }
+                  }
+                }
+              }
             }
           });
 
           $('.loadmore').click(function() {
             var button = $(this);
-            pageNum++;
+            var ajaxLink = '/wp-json/wp/v2/posts?per_page=18&page=' + nextNum;
+            nextNum = pageNum + 1;
+
+            if (first_path === 'art') {
+              fullLink = ajaxLink + '&categories=' + currentCatNum;
+            } else if (first_path === 'tag') {
+              fullLink = ajaxLink + '&tags=' + currentTagNum;
+            } else if (first_path === '') {
+              fullLink = ajaxLink;
+            }
+
             $.ajax({
-              url: '/wp-json/wp/v2/posts?per_page=18&page=' + pageNum,
+              url: '/wp-json/wp/v2/posts?per_page=18&page=' + nextNum,
               type: 'GET',
               beforeSend: function(xhr) {
                 button.text('Loading...');
               },
-              success: function(data) {
-                for (var i = 0; i < data.length; i++) {
-                  var cat = {};
-                  for (var c = 0; c < categories.length; c++) {
-                    if (data[i].categories[0] === categories[c].id) {
-                      cat = categories[c];
-                    }
+              success: function(data, textStatus, request) {
+                if (data) {
+                  var totalPosts = request.getResponseHeader('X-WP-Total');
+                  var numberOfPages = Math.ceil(totalPosts / 18);
+
+                  if (numberOfPages > pageNum + 1) {
+                    pageNum++;
+                    button.text('More posts');
+                  } else {
+                    button.remove();
                   }
-                  var mediaLink = data[i].better_featured_image.media_details.sizes.thumbnail.source_url;
-                  var html = '<article class="post col-xl-4 col-md-6">' +
-                            '<div class="entry">' +
-                              '<header>' +
-                                '<a href="/' + data[i].slug + '">' +
-                                  '<h2 class="entry-title">' + data[i].title.rendered + '</h2>' +
-                                  '<div class="entry-meta">In <span class="cat">' + cat.name + '</span></div>' +
-                                  '<div class="bg"></div>' +
-                                '</a>' +
-                              '</header>' +
-                              '<div class="entry-image">' +
-                                '<img src="' + mediaLink + '" class="img-responsive b-lazy wp-post-image" alt="">' +
+
+                  for (var i = 0; i < data.length; i++) {
+                    var cat = {};
+                    for (var c = 0; c < categories.length; c++) {
+                      if (data[i].categories[0] === categories[c].id) {
+                        cat = categories[c];
+                      }
+                    }
+                    var mediaLink = data[i].better_featured_image.media_details.sizes.thumbnail.source_url;
+                    var html = '<article class="post col-xl-4 col-md-6">' +
+                              '<div class="entry">' +
+                                '<header>' +
+                                  '<a href="/' + data[i].slug + '">' +
+                                    '<h2 class="entry-title">' + data[i].title.rendered + '</h2>' +
+                                    '<div class="entry-meta">In <span class="cat">' + cat.name + '</span></div>' +
+                                    '<div class="bg"></div>' +
+                                  '</a>' +
+                                '</header>' +
+                                '<div class="entry-image">' +
+                                  '<img src="' + mediaLink + '" class="img-responsive b-lazy wp-post-image" alt="">' +
+                                '</div>' +
                               '</div>' +
-                            '</div>' +
-                          '</article>';
-                  $('#posts-content').append(html);
+                            '</article>';
+                    $('#posts-content').append(html);
+                  }
+                } else {
+                  button.remove();
                 }
               }
             });
@@ -72,16 +131,6 @@
         }
 
         launchEvents();
-
-        History.Adapter.bind(window,'statechange',function() {
-          /*$(window).bind('ajaxStart', function() {
-            $('.loading').show();
-          }).bind('ajaxSuccess', function() {
-            $('.loading').hide();
-          });*/
-          launchEvents();
-          console.log(History.getState());
-        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

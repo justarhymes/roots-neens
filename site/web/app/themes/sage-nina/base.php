@@ -22,12 +22,6 @@ use Roots\Sage\Wrapper;
         <main class="main">
           <div id="main-content" class="inner-content">
             <?php include Wrapper\template_path(); ?>
-            <div class="loading">
-              <div class="load-content">
-                <img src="<?php bloginfo('template_directory') ?>/assets/images/loady.gif" alt="Loading...">
-                <p>Loading...</p>
-              </div>
-            </div>
           </div>
           <?php
             do_action('get_footer');

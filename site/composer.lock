@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "48760d230407a4fe0c7850df93b0f414",
-    "content-hash": "b120f28bcd838a8321d88d17ff845b2b",
+    "hash": "8fcfcf070081de137830eb6dddda9ad9",
+    "content-hash": "9adcad4eb47f05cb18f2031961b2bd71",
     "packages": [
         {
             "name": "composer/installers",
@@ -432,26 +432,6 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
-        },
-        {
-            "name": "wpackagist-plugin/ajaxify-wordpress-site",
-            "version": "1.5.5",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/ajaxify-wordpress-site/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajaxify-wordpress-site.zip?timestamp=1481630908",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/ajaxify-wordpress-site/"
         },
         {
             "name": "wpackagist-plugin/better-rest-api-featured-images",
