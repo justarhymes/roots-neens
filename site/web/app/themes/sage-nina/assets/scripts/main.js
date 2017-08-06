@@ -18,11 +18,69 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
-        $(window).bind('ajaxStart', function(){
-          $('.loading').show();
-        }).bind('ajaxSuccess', function() {
-          $('.loading').hide();
+
+        function launchEvents() {
+          // JavaScript to be fired on all pages
+          var pageNum = 1;
+          var categories = [];
+
+          $.ajax({
+            url: '/wp-json/wp/v2/categories',
+            type: 'GET',
+            success: function(data) {
+              categories = data;
+            }
+          });
+
+          $('.loadmore').click(function() {
+            var button = $(this);
+            pageNum++;
+            $.ajax({
+              url: '/wp-json/wp/v2/posts?per_page=18&page=' + pageNum,
+              type: 'GET',
+              beforeSend: function(xhr) {
+                button.text('Loading...');
+              },
+              success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                  var cat = {};
+                  for (var c = 0; c < categories.length; c++) {
+                    if (data[i].categories[0] === categories[c].id) {
+                      cat = categories[c];
+                    }
+                  }
+                  var mediaLink = data[i].better_featured_image.media_details.sizes.thumbnail.source_url;
+                  var html = '<article class="post col-xl-4 col-md-6">' +
+                            '<div class="entry">' +
+                              '<header>' +
+                                '<a href="/' + data[i].slug + '">' +
+                                  '<h2 class="entry-title">' + data[i].title.rendered + '</h2>' +
+                                  '<div class="entry-meta">In <span class="cat">' + cat.name + '</span></div>' +
+                                  '<div class="bg"></div>' +
+                                '</a>' +
+                              '</header>' +
+                              '<div class="entry-image">' +
+                                '<img src="' + mediaLink + '" class="img-responsive b-lazy wp-post-image" alt="">' +
+                              '</div>' +
+                            '</div>' +
+                          '</article>';
+                  $('#posts-content').append(html);
+                }
+              }
+            });
+          });
+        }
+
+        launchEvents();
+
+        History.Adapter.bind(window,'statechange',function() {
+          /*$(window).bind('ajaxStart', function() {
+            $('.loading').show();
+          }).bind('ajaxSuccess', function() {
+            $('.loading').hide();
+          });*/
+          launchEvents();
+          console.log(History.getState());
         });
       },
       finalize: function() {

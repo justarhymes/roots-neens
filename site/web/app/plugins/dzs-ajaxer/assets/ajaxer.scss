@@ -1,0 +1,419 @@
+
+@mixin apply_transition($transition-property, $transition-duration, $transition-timing) {
+	transition-property: $transition-property;transition-duration: $transition-duration;-moz-transition-property:$transition-property;-moz-transition-duration: $transition-duration;-webkit-transition-property:$transition-property;-webkit-transition-duration: $transition-duration;-o-transition-property:$transition-property;-o-transition-duration: $transition-duration;-ms-transition-property:$transition-property;
+	-ms-transition-duration: $transition-duration;-ms-transition-timing-function:$transition-timing;
+
+	@if $transition-timing == ease-out-quart {
+		-webkit-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-moz-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-o-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+	} @else {
+		-webkit-transition-timing-function:$transition-timing;
+		-moz-transition-timing-function:$transition-timing;
+		-o-transition-timing-function:$transition-timing;
+		transition-timing-function: $transition-timing;
+	}
+}
+@mixin boxsizing() {
+	-moz-box-sizing:    border-box;   -webkit-box-sizing: border-box;    box-sizing:        border-box;
+}
+
+
+@mixin center_it(){
+	position: absolute;
+	top:50%; left:50%;
+
+	transform: translate(-50%,-50%);
+}
+
+
+@mixin not2($ignorList...) {
+ //if only a single value given
+ @if (length($ignorList) == 1){
+	 //it is probably a list variable so set ignore list to the variable
+	 $ignorList: nth($ignorList,1);
+ }
+ //set up an empty $notOutput variable
+ $notOutput: '';
+ //for each item in the list
+ @each $not in $ignorList {
+	 //generate a :not([ignored_item]) segment for each item in the ignore list and put them back to back
+	 $notOutput: $notOutput + ':not(#{$not})';
+ }
+ //output the full :not() rule including all ignored items
+ &#{$notOutput} {
+	 @content;
+ }
+}
+
+
+.dzsajx-preloader.dzsajx-preloader-bar{
+	position: relative;
+	height:0;
+	width: 100%;
+
+	$transition-property: height;
+	$transition-duration: 0.3s;
+	$transition-timing: ease-out;
+
+	@include apply_transition($transition-property, $transition-duration, $transition-timing);
+
+	background-color: #cccccc;
+	.the-bar{
+		background-color: #d35c61;
+
+		position: absolute;
+		top:0; left:0;
+		width: 0;
+		height: 100%;
+	}
+}
+
+.dzsajx-preloader.dzsajx-preloader-bar.active{
+	height: 30px;
+
+}
+
+
+
+#loading-center-absolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 50px;
+  width: 150px;
+  margin-top: -25px;
+  margin-left: -75px;
+
+}
+
+.dzsajx-preloader.dzsajx-preloader-custom{
+
+  visibility: hidden;
+  opacity: 0;
+  $transition-property: visibility,opacity;
+  $transition-duration: 0.3s;
+  $transition-timing: ease-out;
+
+  @include apply_transition($transition-property, $transition-duration, $transition-timing);
+
+
+
+
+  &.active{
+
+    visibility: visible;
+    opacity: 1;
+  }
+
+}
+
+#wrapper .dzsajx-preloader.dzsajx-preloader-bars{ z-index: 999999; }
+.dzsajx-preloader.dzsajx-preloader-bars{
+	position: fixed;
+	height:100%;
+	width: 100%;
+
+	top:0;
+	left:0;
+
+	z-index: 555;
+
+
+	visibility: hidden;
+	opacity: 0;
+	$transition-property: visibility,opacity;
+	$transition-duration: 0.3s;
+	$transition-timing: ease-out;
+
+	@include apply_transition($transition-property, $transition-duration, $transition-timing);
+
+	background-color: rgba(30,30,30,0.5);
+
+
+
+	.object{
+		width: 8px;
+		height: 50px;
+		margin-right:5px;
+		background-color: #FFF;
+		-webkit-animation: animate_bars 1s infinite;
+		animation: animate_bars 1s infinite;
+		float: left;
+	}
+
+	.object:last-child {
+		margin-right: 0px;
+	}
+
+	.object:nth-child(10){
+		-webkit-animation-delay: 0.9s;
+		animation-delay: 0.9s;
+	}
+	.object:nth-child(9){
+		-webkit-animation-delay: 0.8s;
+		animation-delay: 0.8s;
+	}
+	.object:nth-child(8){
+		-webkit-animation-delay: 0.7s;
+		animation-delay: 0.7s;
+	}
+	.object:nth-child(7){
+		-webkit-animation-delay: 0.6s;
+		animation-delay: 0.6s;
+	}
+	.object:nth-child(6){
+		-webkit-animation-delay: 0.5s;
+		animation-delay: 0.5s;
+	}
+	.object:nth-child(5){
+		-webkit-animation-delay: 0.4s;
+		animation-delay: 0.4s;
+	}
+	.object:nth-child(4){
+		-webkit-animation-delay: 0.3s;
+		animation-delay: 0.3s;
+	}
+	.object:nth-child(3){
+		-webkit-animation-delay: 0.2s;
+		animation-delay: 0.2s;
+	}
+	.object:nth-child(2){
+		-webkit-animation-delay: 0.1s;
+		animation-delay: 0.1s;
+	}
+
+
+
+
+}
+
+@-webkit-keyframes animate_bars {
+
+	50% {
+		-ms-transform: scaleY(0);
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+
+	}
+
+
+
+}
+
+@keyframes animate_bars {
+	50% {
+		-ms-transform: scaleY(0);
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+	}
+
+
+}
+
+.dzsajx-preloader.dzsajx-preloader-bars.active{
+	visibility: visible;
+	opacity: 1;
+
+}
+
+
+html.dzsajx-transition-fade{
+	.dzsajx-content{
+
+		opacity:1;
+		$transition-property: opacity,visibility;
+		$transition-duration: 0.3s;
+		$transition-timing: ease-in;
+
+		@include apply_transition($transition-property, $transition-duration, $transition-timing);
+	}
+
+
+}
+
+html.dzsajx-transition-fade.dzsajx-ajax-transitioning-out{
+
+	.curr-content{
+		opacity: 0;
+	}
+
+}
+
+html.dzsajx-preloader-cursor.dzsajx-ajax-loading{
+
+	body{
+
+		cursor: wait!important;
+		*{
+
+			cursor: wait!important;
+		}
+	}
+
+}
+
+#dzsajx-content-container{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+html.dzsajx-transition-scaledown{
+	.dzsajx-content{
+
+		transform: scale(1);
+		opacity:1;
+
+		$transition-property: all;
+		$transition-duration: 0.5s;
+		$transition-timing: ease-in;
+
+		@include apply_transition($transition-property, $transition-duration, $transition-timing);
+	}
+
+
+	.transitioning-content{
+		position: absolute;
+		top:0;
+		left:0;
+		width: 100%;
+		transform: scale(0.5);
+
+		opacity:0;
+
+
+		$transition-property: all;
+		$transition-duration: 0.5s;
+		$transition-timing: ease-in;
+
+		@include apply_transition($transition-property, $transition-duration, $transition-timing);
+	}
+}
+
+html.dzsajx-transition-scaledown.dzsajx-ajax-transitioning-in{
+
+	.curr-content{
+		transform: scale(0.5);
+		opacity:0;
+	}
+
+	.transitioning-content{
+		transform: scale(1);
+		opacity:1;
+	}
+
+}
+html.dzsajx-transition-slide{
+	.dzsajx-content{
+
+		transform: translate3d(0,0,0);
+
+		opacity:1;
+		$transition-property: all;
+		$transition-duration: 0.5s;
+		$transition-timing: ease-in;
+
+		@include apply_transition($transition-property, $transition-duration, $transition-timing);
+	}
+
+
+	.transitioning-content{
+		position: absolute;
+		top:0%;
+		left:0;
+		width: 100%;
+
+		opacity:0;
+
+		transform: translate3d(0,100vh,0);
+
+		$transition-property: all;
+		$transition-duration: 0.5s;
+		$transition-timing: ease-in;
+
+		@include apply_transition($transition-property, $transition-duration, $transition-timing);
+	}
+}
+
+html.dzsajx-transition-slide.dzsajx-ajax-transitioning-in{
+
+	.curr-content{
+		transform: translate3d(0,-100vh,0);
+		opacity:0;
+	}
+
+	.transitioning-content{
+		transform: translate3d(0,0,0);
+		opacity:1;
+	}
+
+}
+
+
+.dzsajx-script-tag{
+	display: none;
+}
+
+
+a.ajaxer-btn-secondary{
+
+	text-decoration: none;
+
+}
+.ajaxer-btn-secondary {
+	border-radius: 3px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 15px;
+	background: #98bad1;
+	padding: 5px 12px;
+	text-decoration: none;
+
+	display: inline-block;
+}
+
+.ajaxer-btn-secondary:hover {
+	background: #7da4bd;
+	text-decoration: none;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+
+.comment-feedbacker{
+
+	position: fixed;;
+
+	display: none;
+
+	top: 30px;
+
+	left:50%;
+
+	transform: translate(-50%, -10px);
+
+	padding: 10px 20px;
+
+	z-index: 555555;
+
+	background-color: #65c5a7;
+
+	color: #d5f4f7;
+
+	$transition-property: transform;
+	$transition-duration: 0.3s;
+	$transition-timing: ease-in;
+
+	@include apply_transition($transition-property, $transition-duration, $transition-timing);
+
+}
+.comment-feedbacker.is-error{
+	background-color: #a96171;
+}
+
+.comment-feedbacker.active{
+
+	transform: translate(-50%, 0px);
+}

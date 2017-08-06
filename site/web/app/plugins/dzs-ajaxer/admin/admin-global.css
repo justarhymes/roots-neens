@@ -1,0 +1,10 @@
+#toplevel_page_dzsajx_menu .wp-menu-image {
+  background: transparent url(img/icon.png) center center no-repeat; }
+
+#toplevel_page_dzsajx_menu:hover .wp-menu-image {
+  background: transparent url(img/icon-hover.png) center center no-repeat; }
+
+#toplevel_page_dzsajx_menu.wp-menu-open .wp-menu-image {
+  background: transparent url(img/icon-hover.png) center center no-repeat; }
+
+/*# sourceMappingURL=admin-global.css.map */

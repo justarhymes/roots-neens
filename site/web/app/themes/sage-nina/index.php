@@ -7,10 +7,16 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 
-<div class="row flex-row">
+<div id="posts-content" class="row flex-row">
   <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
   <?php endwhile; ?>
 </div>
+
+<?php
+  if (  $wp_query->max_num_pages > 1 ) {
+    echo '<button type="button" class="loadmore">More posts</button>';
+  }
+?>
 
 <?php the_posts_navigation(); ?>

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6042ebbeb5e0b6e184e4f01d198fe2c",
-    "content-hash": "4fad335bde23190764a93b767fbba8bf",
+    "hash": "48760d230407a4fe0c7850df93b0f414",
+    "content-hash": "b120f28bcd838a8321d88d17ff845b2b",
     "packages": [
         {
             "name": "composer/installers",
@@ -452,6 +452,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/ajaxify-wordpress-site/"
+        },
+        {
+            "name": "wpackagist-plugin/better-rest-api-featured-images",
+            "version": "1.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/better-rest-api-featured-images/",
+                "reference": "tags/1.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-rest-api-featured-images.1.2.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/better-rest-api-featured-images/"
         },
         {
             "name": "wpackagist-plugin/regenerate-thumbnails",

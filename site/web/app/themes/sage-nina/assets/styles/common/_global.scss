@@ -41,6 +41,7 @@ a, a:hover, a:focus {
 
 .main > .inner-content {
   padding: 15px 15px 0;
+  min-height: calc(100vh - 80px);
   @include media-breakpoint-down(sm) {
     padding: 0;
   }

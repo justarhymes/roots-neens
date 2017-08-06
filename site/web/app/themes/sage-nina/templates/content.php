@@ -5,6 +5,7 @@
       <a href="<?php the_permalink(); ?>">
         <h2 class="entry-title"><?php the_title(); ?></h2>
         <?php get_template_part('templates/entry-meta'); ?>
+        <div class="bg"></div>
       </a>
     </header>
     <div class="entry-image">

@@ -1,0 +1,35 @@
+/*=====Save Confirmer */
+.saveconfirmer {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  width: 180px;
+  padding: 20px 20px 10px 20px;
+  height: 30px;
+  margin-left: -100px;
+  margin-top: -25px;
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+  background: #d2ff52;
+  color: #111; }
+
+/*=====END Save Confirmer */
+/*===== main options styling ===*/
+.setting .label {
+  margin-bottom: 5px; }
+
+.sidenote {
+  margin: 10px 0;
+  font-style: italic;
+  color: #bbb;
+  font-size: 0.9em; }
+
+h4 .sidenote {
+  text-decoration: none; }
+
+.dzsajx-theme-name {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px 12px;
+  display: inline-block; }
+
+/*# sourceMappingURL=admin-mo.css.map */

@@ -1,0 +1,176 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation Ajaxer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
+
+    <link href="style.css" rel="stylesheet">
+    <style type="text/css">
+    .color-highlight {
+	color: #CC6633;
+}
+    .sidenote {
+	font-size: 14px;
+}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header" style="margin-top: 15px;">
+            <a class="navbar-brand" href="#">
+                <img src="https://lh3.googleusercontent.com/U8tW9SMhpHSy4c51Wd-fSubOquREARRHH13pzx7BND7DeUk3euYSRhYZ_8O7c3Qj05EtjZgw8VIaT28J5oFFiGiUoAMsrEtcCNTwZqH3CjoB9Vn-MOIUcCCeNleNgxH3pD9b7msC9sm-uLePMWOknL4RPdEoFa_OULsvjwqlPJXSRNpGnwpFg03Lf2Jd_296o0ZEvHlbBPK_XIFxXpfLkLaMrvchB3PwclrSUAxlh_OIbwVikJjlYVD7919WoWmAJvtZXeCoUT_8uEULKDR1Jj7CfpHMskBdCkLXXsQg_XU5KvLJTuHOdDzUqNsEhpAQjPYrkDrxqOSgrcY0WQbpIHmmFLm9njn20r9PLXkADqxrtV4Q5jEO9TFrtw9XNl8ewz7W6epzXM0_0tG90dyVQl2perW7L0SsTCCN0DgVU-Ykp6mIXXu4nKNObi4tz72nFtuQl-528wWiszqQkaEqdf9nrZwpVEm8TwGXv2eQ1fTKHkT_WhG7dSZmq0mVV5GTd5idk2FcXOE7wJ9BOV3G1eB0BIPgYndmN2egooZ5xdbvoVi_8XTv3Y_1lWSgpmBufrdG=w139-h32-no"/>
+            </a>
+        </div>
+        <a class="btn btn-custom pull-right"
+           target="_blank"
+           href="http://digitalzoomstudio.net/links/fullwidthaudioplayer.php">
+            <span class="glyphicon glyphicon-download-alt"></span>
+            Item Page
+        </a>
+    </div>
+</nav>
+<div class="container">
+    <section class="sidebar">
+        <ul>
+            <li>Setup
+                <ul>
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#customize">Customize</a></li>
+                    <li><a href="#developertips">Developer Tips</a></li>
+              </ul>
+          </li>
+            <li>
+      </ul>
+    </section>
+    <article>
+        <h2 id="intro">DZS Ajaxer WordPress Plugin</h2>
+        <div class="row row-with-inline">
+                <div class="col-md-5 bg-for-intro" >
+                <strong>Created</strong>: 03/04/2016<br>
+                <strong>Author</strong>: Digital Zoom Studio<br>
+                <strong>Twitter</strong>: <a href="http://twitter.com/@ZoomItFlash">http://twitter.com/</a><br>
+                <strong>Facebook</strong>: <a href="facebook.com/digitalzoomstudio">http://facebook.com/dzs</a><br>
+                <strong>Support</strong> - via item comments
+            </div>
+            <div class="col-md-7">
+                Thank you for purchasing my component. If you have any questions that are beyond the scope of this help file, you can ask them in the Item Discussions.
+            </div>
+        </div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p><a name="installation"></a></p>
+      <h2 id="installation">Installation</h2>
+        <p>
+        <p>First thing you have to do is go to your WP Dashboard admin, click Plugin &gt; Add New, then the<strong> Upload Plugin </strong>button.</p>
+      <p><img src="https://c7.staticflickr.com/2/1450/25844413854_7224210f7c_z.jpg"/></p>
+      <p>This process is different from host provider to host provider so if you are confused by this, you can contact that hosting provider to ask for assistence.</p>
+      <p>&nbsp;</p>
+      <p>Here is a quick video tutorial:</p>
+      <p><iframe width="100%" height="315" src="https://www.youtube.com/embed/RllS92VPJp0" frameborder="0" allowfullscreen></iframe></p>
+      <p>&nbsp;</p>
+      <h2 id="customize">Setup</h2>
+        <p>Setup is done in the admin page accessible from the WP Dashboard. <strong>Ajaxer</strong> Page.</p>
+      <p><img src="https://c5.staticflickr.com/2/1674/25844742484_5126af57db_b.jpg"/> </p>
+        <p>If the button saying<strong> Install Default Settings for {{your_theme}}</strong>, is there , then you should click that. Those are our recommeded settings. You can change transition and preloader after.</p>
+        <p>If there is no such button, it means that your theme is not in our predefined books and require some manual adjustment. Generally, it means to primarely just set the content container and the menu selector, which we will show you how to do by explaining each setting.  </p>
+      <h3><strong>Enable Ajax?</strong></h3>
+      <p>Setting this to off will disable the plugin functionality, so it's mandatory that it's left to ON. Use OFF only for testing purposes.</p>
+      <p>&nbsp;</p>
+      <h3><strong>Content Selector</strong></h3>
+      <p>This is the content selector. If you have basic html knowledge, it's easy to find out. If not, it's no problem, we'll explain below how to setup.</p>
+      <div class="alert alert-warning">
+  <strong>Tip!</strong> - the basic HTML / CSS selectors are <strong>.</strong> for class and <strong>#</strong> for id. </div>
+      <p class="">First we need to go to our frontend and right click on a element from the content and click <strong>Inspect</strong>.</p>
+      <p><img src="https://c7.staticflickr.com/2/1451/26177454830_d1f639fe32_b.jpg"/>Next, the DOM tree will appear. We need to go as high as possible and look for an element that covers the content area ( in the blue area ) .</p>
+      <div class="alert alert-warning"> if it's not possible to select only the content, and the header gets selected too, we can remove it from the content with the <strong>Move Menu on Top of Content</strong> option</div>
+      <p><img src="https://c7.staticflickr.com/2/1535/26177394190_31fcd7413d_b.jpg" alt=""/></p>
+      <p>This is the element we selected in the tree. We need to go higher.</p>
+      <p><img src="https://c1.staticflickr.com/2/1623/26424312896_80f415b86b_b.jpg" alt=""/></p>
+      <p>This element looks like a good match. It covers the whole content area. In this case, we can either select it by id and input in the <strong>Content Selector</strong> field - <strong>#content</strong> . Or select it by class and input in the <strong>Content Selector</strong> field - <strong>.site-content</strong>. It will be the same outcome in this case, but in other cases only the id or only the class might be present. <em>Generally, id is prefered.</em></p>
+      <p>If we go a little higher in the tree we will see that the parent element contains all of the site which is not what we want, we want only the content to load:</p>
+      <p><img src="https://c7.staticflickr.com/2/1543/26424312766_c6e0fa8af5_b.jpg" alt="" style="opacity:0.5;"/></p>
+      <p>This should be all the setup for the <strong>Content Selector</strong> field.</p>
+      <p>&nbsp;</p>
+        <h3><strong>Menu Selector</strong></h3>
+        <p>This is the menu selector. We follow the same steps to find it out. We inspect a item in the menu and find the highest menu parent. In this case, the twentyfifteen theme it's <strong>#site-navigation</strong> that should be entered in this field.</p>
+        <p class=""><img src="https://c3.staticflickr.com/2/1567/25845579994_614edfe227_b.jpg" alt="" style="opacity:1;"/></p>
+        <h3><strong>Move Menu on Top of Content</strong></h3>
+        <p>If there is no way to select the container without the menu, you can use this option to place the menu on top of the content. It can work in some themes.</p>
+        <h3><strong>Transition</strong></h3>
+        <p>Choose from No Transition, Fade, Scale Down or Slide. </p>
+        <p><strong>No Transition</strong> and <strong>Fade</strong> are direct transitions. These provide maximum compatibility.</p>
+        <p><strong>Scale Down </strong>and <strong>Slide</strong> are more complex transitions and might not work in all themes and with all plugins.</p>
+        <p>&nbsp;</p>
+        <p>We cannot guarentee compatibility with all 3rd party plugins. As long as the 3d party plugin is properly coded, it should work with this plugin, but otherwise it might not.</p>
+        <p>A properly coded plugin should load all their scrips via <strong>wp_enqueue</strong> functions. And it should apply functionality via a inline scripts like this format targeting a unique class :</p>
+        <p>&nbsp;</p>
+        <div class="code">&lt;div class=&quot;audioplayer-tobe <strong>ap_idx_2</strong> apconfig-skinwave-small skin-wave ap772&quot; style=&quot;&quot; id=&quot;ap772&quot;&gt; [...] &lt;/div&gt;&lt;script&gt; jQuery(document).ready(function ($){  dzsap_init_functionality(&quot;.<strong>ap_idx_2</strong>&quot;,settings_ap); });        </div>
+        <p>&nbsp;</p>
+      <h3><strong>Preloader</strong></h3>
+      <p>Choose from <strong>No Preloader</strong>, <strong>Bar</strong> or <strong>Fullscreen Bars</strong>.</p>
+      <h3><strong>Extra Items to be Replaced</strong></h3>
+      <p>These selectors will be searched in the new ajax loaded content and replaced in the current page accordingly, in the same order.</p>
+      <p></p>
+      <h3><strong>Extra Items to be Added</strong></h3>
+      <p>This is similar to the<strong> .. to be Replaced</strong> setting, but the difference is that each selector will be queried in the page. If it does not exist, then the element found in the ajax content will be added to the current page. If it is found, then the contents will be replaced.</p>
+      <p>This is useful for example for a footer player outside the content, like seen in the demo.</p>
+      <h3><strong>Scripts Execute after Ajax Call ?</strong></h3>
+      <p>Select this if javascript scripts in the page should execute after the ajax call is completed. This might increase 3rd party plugins compatibility.</p>
+      <p>&nbsp;</p>
+      <h3><strong>Scripts to Reload</strong></h3>
+      <p><em>these scripts will be discarded and loaded again when the new page loads</em></p>
+      <p>If some scripts have some special initialization inside them you can choose to have them discarded and loaded again on page load. Demo input: </p>
+      <p class="code">scripts.min.js,owl.slider.js      </p>
+      <p>These will unload and reload on page load any scripts that contain <span class="code">scripts.min.js</span> or <span class="code">slider.js</span> </p>
+        <h3><strong>Script Call on Page Load</strong></h3>
+        <p><em>javascript call on page change . - warning</em></p>
+      <p>Only to be modified if you know what you are doing. - might break the change. - javascript call on each page load. Example input:</p>
+        <p class="code">jQuery('.carousel-wrap .carousel-items,.blog-masonry .masonry-items .blog-item').css('opacity',1);        </p>
+        <p>This will  unhide the elements specified in the jQuery selector.</p>
+        <h3><strong>How to Ajaxify </strong>Search Form</h3>
+        <p>Ajaxer tries to ajaxify the search form by default. First try to search something, and if the search is not done ajaxified, then proceed to this simple setup.</p>
+        <p>Right click the search field, click Inspect</p>
+        <p><img src="https://c5.staticflickr.com/2/1681/26590627372_2f0b76d70d_c.jpg" alt="" style="opacity:1;"/></p>
+        <p>Then you will need to search for the form element that contains it. In this case it's <strong>.searchform</strong> . After you found it, you can just to <strong>Ajaxer Settings</strong> and input it in the <strong>Search Form Selector</strong> field.</p>
+        <p>&nbsp;</p>
+        <h3><strong>How to Ajaxify </strong>Comments</h3>
+        <p>Ajaxer tries to ajaxify the comments form by default. First try to comment something, and if the comment is not done ajaxified, then proceed to this simple setup.</p>
+        <p>Right click the search field, click Inspect</p>
+        <p><img src="https://c3.staticflickr.com/2/1655/26656714706_a7c7c6b91d_c.jpg" alt="" style="opacity:1;"/></p>
+        <p>Then you will need to search for the form element that contains it. In this case it's <strong>.comment-form</strong> . After you found it, you can just to <strong>Ajaxer Settings</strong> and input it in the <strong>Comment Form Selector</strong> field.</p>
+        <p>&nbsp;</p>
+        <h2 id="developertips">Developer Tips</h2>
+        <p class="sidenote"><span class="color-highlight"><strong>Note</strong></span>: this is for advanced users only. Changes to any topic covered here can break the portal.</p>
+      <h4>Recommended Programs</h4>
+<p>You can generally use any text editing software [ like<strong> notepad</strong> ] to edit content/code but this is what I recommend:</p>
+<ul>
+  <li></li>
+  <li><strong>.js, .php, .scss</strong> - phpStorm</li>
+</ul>
+<h3 id="tips2"></h3>
+<h4>SASS</h4>
+<p>If you are a developer you will notice there are some .scss files included too. This is the language for a css preprocessor which makes a developer's life easier. This is optional but if you want to try it here is <a href="http://sass-lang.com/docs.html">the site</a>.</p>
+        <h5>&nbsp;</h5>
+</article>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <script src="assets/js/prism.js"></script>
+    <script src="assets/js/jquery.colorbox.js"></script>
+    <script type="text/javascript">
+        $("article img").wrap(function () {
+            return "<a class='colorbox' href='"+$(this).attr('src')+"'></a>"
+        });
+
+        $("table").addClass('table');
+
+        $('a.colorbox').colorbox({width: "80%"});
+    </script>
+</div>
+</body>
+</html>

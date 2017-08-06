@@ -27,5 +27,5 @@
     if ( ! empty( $categories ) ) {
         echo '<span class="cat">' . esc_html( $categories[0]->name ) . '</span>';
     }
-  ?>, on <time class="updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time></div>
+  ?></div>
 <?php endif; ?>

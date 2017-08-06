@@ -43,6 +43,7 @@
     "wpackagist-plugin/ajaxify-wordpress-site": ">=1.5.5",
     "wpackagist-plugin/simple-social-icons": ">=2.0.1",
     "wpackagist-plugin/wp-migrate-db": ">=0.9.2",
+    "wpackagist-plugin/better-rest-api-featured-images": ">=1.2.1",
     "roots/soil": "^3.7.1"
   },
   "require-dev": {

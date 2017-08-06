@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yCAAyC;EACvC,UAAU,EAAE,qDAAqD;;AAClE,+CAA+C;EAC7C,UAAU,EAAE,2DAA2D;;AAE1E,sDAAsD;EACpD,UAAU,EAAE,2DAA2D",
+"sources": ["admin-global.scss"],
+"names": [],
+"file": "admin-global.css"
+}
