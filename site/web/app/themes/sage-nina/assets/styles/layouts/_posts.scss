@@ -87,6 +87,16 @@
       }
     }
 
+    .entry-content {
+      p {
+        margin: 20px 0;
+
+        &:last-child {
+          margin: 20px 0 0;
+        }
+      }
+    }
+
     .entry-meta {
       margin-top: 15px;
       margin-bottom: 15px;

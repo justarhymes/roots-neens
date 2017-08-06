@@ -11,7 +11,7 @@
         }
       ?>
     </div>
-    <?php if ( the_content() ) : ?>
+    <?php if ( get_the_content() ) : ?>
       <div class="entry-content">
         <?php the_content(); ?>
       </div>
